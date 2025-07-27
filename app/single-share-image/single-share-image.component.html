@@ -1,0 +1,16 @@
+<div class="share-image-card" [ngClass]="{click: clickOrNot}">
+    <h2>{{modelshareimage.title | titlecase}}</h2>
+    <a routerLink = "/Sharerto">BACK</a>
+    @if (modelshareimage.location) {
+        <p>Localisation: {{modelshareimage.location}}</p>
+    }@else {
+        <p>localisation: unknown</p>
+    }
+    <img [src]="modelshareimage.imageUrl" [alt]="modelshareimage.title"/>
+    <p>{{modelshareimage.description}}</p>
+    <p>vue le {{modelshareimage.create_date | date: 'd MMMM YYYY à HH:mm'}}</p>
+    <p>
+        <button (click)="onLike()" >{{likeName}}</button>
+        <span [ngStyle]="{color : 'rgb('+ modelshareimage.like +', 0, 0)'}">😈{{modelshareimage.like}}</span>
+    </p>
+</div>
